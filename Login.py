@@ -1,10 +1,12 @@
 import streamlit as st
-import hmac
+import hmac, os
+from dotenv import load_dotenv
 from st_pages import Page, show_pages
 
+load_dotenv()
 def check_password():
     def password_entered():
-        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
+        if hmac.compare_digest(st.session_state["password"], os.getenv("password")):
             st.session_state["password_correct"] = True
             del st.session_state["password"]
         else:
