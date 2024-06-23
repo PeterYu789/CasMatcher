@@ -3,7 +3,6 @@ import hmac, os
 from dotenv import load_dotenv
 from st_pages import Page, show_pages
 
-load_dotenv()
 def check_password():
     def password_entered():
         if hmac.compare_digest(st.session_state["password"], os.getenv("password")):
@@ -20,6 +19,7 @@ def check_password():
     return False
 
 def main():
+    load_dotenv()
     if not check_password():
         st.stop()
     else:
