@@ -149,8 +149,8 @@ def main():
             if len(MDSreports) == 0:
                 st.warning(" ❌ No reports are uploaded.")
             else:
-                progress_bar = st.progress(0)
-                with st.spinner("Operation in progress. Please wait."):
+                progress_bar.progress(0)
+                with st.spinner("Operation in progress. Please wait..."):
                     for i, report in enumerate(MDSreports):
                         matcher.get_result(report, standard_name)
                         progress_bar.progress((i + 1) / len(MDSreports))
