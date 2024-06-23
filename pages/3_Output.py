@@ -26,10 +26,9 @@ def get_outputs(get_match: bool):
         if file.split('.')[-1] != 'txt':
             list_name, matching_number, filename = file.split('&')
             if matching_number != '0' or not get_match:
-                file_path = os.path.abspath('./outputs' + file)
                 df_data['Standard'].append(list_name)
                 df_data['Matching Number'].append(matching_number)
-                df_data['Filename'].append(file_path)
+                df_data['Filename'].append(filename)
     df = pd.DataFrame(df_data)
     df['Matching Number'] = df['Matching Number'].astype(int)
     return df
@@ -45,20 +44,11 @@ def main():
     st.header("All the files in output folder:", divider='rainbow')
     st.dataframe(
         get_outputs(False),
-        column_config = {
-            "Filename": st.column_config.LinkColumn(
-                "Filename",
-            )
-        },
         hide_index=True,
-        
     )
     st.header("List of files with matching CAS number:", divider='rainbow')
     st.dataframe(
         get_outputs(True),
-        column_config = {
-            "Filename": st.column_config.LinkColumn("Filename")
-        },
         hide_index=True,
     )
     st.divider()
