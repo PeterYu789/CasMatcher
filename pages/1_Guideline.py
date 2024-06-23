@@ -1,7 +1,7 @@
 import streamlit as st
 
 def main():
-    st.header(':books: Guideline')
+    st.title(':books: Guideline')
     st.markdown('**1. Upload standard lists that you want to use for comparison.**')
     st.markdown('**2. Select the standard list for comparison.**')
     st.markdown('**3. Upload the MAS Reports before process.**')

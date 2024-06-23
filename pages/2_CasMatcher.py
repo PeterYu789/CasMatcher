@@ -117,7 +117,7 @@ class CASMatcher:
 
 def main():
     matcher = CASMatcher()
-    st.title('CASMatcher Application')
+    st.title(' 📋 CASMatcher Application')
     st.header('1. Upload the standard lists for comparison:', divider='rainbow')
     standard_lists = st.file_uploader(
         label='Upload Standard Lists',
